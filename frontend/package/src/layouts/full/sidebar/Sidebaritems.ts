@@ -1,3 +1,4 @@
+import { uniqueId } from "lodash";
 export interface ChildItem {
   id?: number | string;
   name?: string;
@@ -19,9 +20,11 @@ export interface MenuItem {
   children?: ChildItem[];
   url?: any;
   isPro?: boolean
+  navlabel?: boolean;   
+  subheader?: string;    
+  collapse?: boolean;
 }
 
-import { uniqueId } from "lodash";
 
 const SidebarContent: MenuItem[] = [
   {
@@ -34,27 +37,27 @@ const SidebarContent: MenuItem[] = [
         url: "/",
         isPro: false,
       },
-      {
-        name: "Email",
-        icon: "solar:letter-linear",
-        id: uniqueId(),
-        url: "/email", 
-        isPro: false,
-        children: [
-          {
-            name: "Add Email",
-            id: uniqueId(),
-            url: "/email/add-email", 
-            isPro: false,
-          },
-          {
-            name: "Email List",
-            id: uniqueId(),
-            url: "/email/email-list", 
-            isPro: false,
-          },
-        ],
-      },
+      
+     {
+  name: "Email",
+  icon: "solar:letter-linear",
+  id: uniqueId(),
+  children: [
+    {
+      name: "Add Email",
+      id: uniqueId(),
+      url: "/ui/addemail",
+      isPro: false,
+    },
+    {
+      name: "Email List",
+      id: uniqueId(),
+      url: "/email/email-list",
+      isPro: false,
+    },
+  ],
+},
+
       {
         name: "eCommerce",
         icon: "solar:atom-line-duotone",

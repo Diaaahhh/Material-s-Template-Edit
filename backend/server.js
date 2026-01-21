@@ -3,7 +3,7 @@ import mysql from "mysql";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.js";
-
+import addEmailRoutes from "./routes/addemail.js"
 const app = express();
 
 
@@ -27,6 +27,7 @@ db.connect((err) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/ui", addEmailRoutes);
 
 app.listen(8081, () => {
   console.log("Running on port 8081");

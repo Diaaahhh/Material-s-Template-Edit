@@ -12,7 +12,7 @@ const BlankLayout = Loadable(lazy(() => import('../layouts/blank/BlankLayout')))
 
 // Dashboard
 const Dashboard = Loadable(lazy(() => import('../views/dashboards/Dashboard')));
-
+const AddEmail=Loadable(lazy(()=> import('../views/addemail/AddEmail.js')));
 // utilities
 const Typography = Loadable(lazy(() => import("../views/typography/Typography")));
 const Table = Loadable(lazy(() => import("../views/tables/Table")));
@@ -34,6 +34,7 @@ const Router = [
     element: <ProtectedRoute><FullLayout /></ProtectedRoute>,
     children: [
       { path: '/', exact: true, element: <Dashboard/> },
+      {path: '/ui/addemail', exact: true, element: <AddEmail/>},
       { path: '/ui/typography', exact: true, element: <Typography/> },
       { path: '/ui/table', exact: true, element: <Table/> },
       { path: '/ui/form', exact: true, element: <Form/> },
